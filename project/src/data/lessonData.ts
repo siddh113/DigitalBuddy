@@ -823,65 +823,52 @@ const lessonData: Record<string, Record<string, Record<string, string>>> = {
     },
     "Prompt Engineering": {
       "Understanding Prompts": `
-        <h2>Understanding Prompts</h2>
+        <h2></h2>
         <p>Learn what prompts are and why they're important when working with AI systems.</p>
         
-        <h3>What is a Prompt?</h3>
+        <h3>--> <strong>What is a Prompt?</strong></h3>
         <p>A prompt is the input text provided to an AI to instruct it on what you want it to do or generate.
         It's essentially how you communicate with the AI to get the desired output.</p>
-        
-        <h3>Types of Prompts</h3>
+        ___________________________________________
+        <h3>--> <strong>Types of Prompts:</strong></h3>
         <ul>
-          <li><strong>Simple Queries:</strong> Basic questions seeking information</li>
-          <li><strong>Instructions:</strong> Directions for specific tasks or outputs</li>
-          <li><strong>Creative Requests:</strong> Asking for stories, poems, or creative content</li>
-          <li><strong>Conversational:</strong> Natural dialogue-style interactions</li>
-          <li><strong>System Prompts:</strong> Setting overall behavior and constraints</li>
+          <li>Simple Queries:</strong> Basic questions seeking information</li>
+          <li>Instructions:</strong> Directions for specific tasks or outputs</li>
+          <li>Creative Requests:</strong> Asking for stories, poems, or creative content</li>
+          <li>Conversational:</strong> Natural dialogue-style interactions</li>
+          <li>System Prompts:</strong> Setting overall behavior and constraints</li>
         </ul>
-        
-        <h3>How AI Interprets Prompts</h3>
+        ___________________________________________
+        <h3>--> <strong>How AI Interprets Prompts</strong></h3>
         <p>Understanding how large language models process and respond to prompts:</p>
         <ul>
-          <li><strong>Pattern Recognition:</strong> AI identifies patterns in your request</li>
-          <li><strong>Context Windows:</strong> How much information AI can consider at once</li>
-          <li><strong>Token Limitations:</strong> How input length affects responses</li>
+          <li>Pattern Recognition:</strong> AI identifies patterns in your request</li>
+          <li>Context Windows:</strong> How much information AI can consider at once</li>
+          <li>Token Limitations:</strong> How input length affects responses</li>
         </ul>
         
-        <h3>Practice Exercise</h3>
-        <p>Take a simple task (like summarizing a paragraph) and write five different prompts asking an AI to perform this task.
-        Test each prompt with an AI tool and compare the results.</p>
+
       `,
       "Writing Effective Prompts": `
-        <h2>Writing Effective Prompts</h2>
+        <h2></h2>
         <p>Learn techniques to craft prompts that produce better AI responses.</p>
         
-        <h3>Clarity and Specificity</h3>
+        <h3>--> <strong>Clarity and Specificity</strong></h3>
         <ul>
-          <li><strong>Be Direct:</strong> Clearly state what you want</li>
-          <li><strong>Avoid Ambiguity:</strong> Use precise language</li>
-          <li><strong>Single Tasks:</strong> Focus on one request at a time</li>
-          <li><strong>Examples:</strong> ❌ "Tell me about stuff" ✅ "Explain quantum computing in simple terms"</li>
+          <li>Be Direct:</strong> Clearly state what you want</li>
+          <li>Avoid Ambiguity:</strong> Use precise language</li>
+          <li>Single Tasks:</strong> Focus on one request at a time</li>
+          <li>Examples:</strong> ❌ "Tell me about stuff" ✅ "Explain quantum computing in simple terms"</li>
         </ul>
         
-        <h3>Structuring Your Prompt</h3>
+        <h3>--> <strong>Structuring Your Prompt</strong></h3>
         <ul>
-          <li><strong>Context First:</strong> Provide background information</li>
-          <li><strong>Clear Instructions:</strong> State the exact task</li>
-          <li><strong>Output Format:</strong> Specify how you want the response presented</li>
-          <li><strong>Example Structure:</strong> "I am [role]. I need [task] because [context]. Please provide [specific output format]."</li>
+          <li>Context First:</strong> Provide background information</li>
+          <li>Clear Instructions:</strong> State the exact task</li>
+          <li>Output Format:</strong> Specify how you want the response presented</li>
+          <li>Example Structure:</strong> "I am [role]. I need [task] because [context]. Please provide [specific output format]."</li>
         </ul>
-        
-        <h3>Specifying Parameters</h3>
-        <ul>
-          <li><strong>Tone:</strong> Professional, casual, technical, simple, etc.</li>
-          <li><strong>Length:</strong> Short summary, detailed explanation, specific word count</li>
-          <li><strong>Audience:</strong> Who the response is intended for</li>
-          <li><strong>Examples:</strong> "Explain blockchain to a 10-year-old in under 100 words" or "Write a professional email to a potential client"</li>
-        </ul>
-        
-        <h3>Practice Exercise</h3>
-        <p>Rewrite three ineffective prompts using the techniques learned. Test both versions with an AI tool
-        and analyze the differences in the responses.</p>
+      
       `,
       "Context and Details": `
         <h2>Context and Details in Prompts</h2>
