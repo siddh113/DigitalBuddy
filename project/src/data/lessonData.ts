@@ -17,30 +17,30 @@ export const getQuizQuestions = (courseId: string, moduleTitle: string, quizNumb
 const lessonData: Record<string, Record<string, Record<string, string>>> = {
   microsoft: {
     "Microsoft Word Basics": {
-      "Introduction to Word Interface": `
-        <h2>Introduction to Microsoft Word Interface</h2>
+     "Introduction to Word Interface": `
+        <h2><strong>Introduction to Microsoft Word Interface</strong></h2>
         <p>Welcome to the Microsoft Word interface! In this lesson, you'll learn about the key components of the Word interface.</p>
-        
-        <h3>The Ribbon</h3>
-        <p>The Ribbon is the main control panel at the top of the Word window. It's organized into tabs (Home, Insert, Design, etc.) 
+        <p></p>
+        <h3><strong>The Ribbon</strong></h3>
+        <p>--> The Ribbon is the main control panel at the top of the Word window. It's organized into tabs (Home, Insert, Design, etc.) 
         with related commands grouped together.</p>
         
-        <h3>Quick Access Toolbar</h3>
-        <p>Located above the Ribbon, this customizable toolbar provides one-click access to commonly used commands like Save, 
+        <h3><strong>Quick Access Toolbar</strong></h3>
+        <p>--> Located above the Ribbon, this customizable toolbar provides one-click access to commonly used commands like Save, 
         Undo, and Redo.</p>
         
-        <h3>Document Area</h3>
-        <p>This is where you type and edit your text. The white space represents your document as it will appear when printed.</p>
+        <h3><strong>Document Area</strong></h3>
+        <p>--> This is where you type and edit your text. The white space represents your document as it will appear when printed.</p>
         
-        <h3>Status Bar</h3>
-        <p>Located at the bottom of the window, it displays information about your document, such as page count, word count, 
+        <h3><strong>Status Bar</strong></h3>
+        <p>--> Located at the bottom of the window, it displays information about your document, such as page count, word count, 
         and view options.</p>
         
-        <h3>Navigation Pane</h3>
-        <p>This optional panel helps you navigate through your document using headings, pages, or search results.</p>
+        <h3><strong>Navigation Pane</strong></h3>
+        <p>--> This optional panel helps you navigate through your document using headings, pages, or search results.</p>
         
-        <h3>Practice Exercise</h3>
-        <p>Open Microsoft Word and identify each of these interface elements. Try clicking on different tabs in the Ribbon 
+        <h3><strong>Practice Exercise</strong></h3>
+        <p>--> Open Microsoft Word and identify each of these interface elements. Try clicking on different tabs in the Ribbon 
         to see what commands are available.</p>
       `,
       "Basic Text Formatting": `
