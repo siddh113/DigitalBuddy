@@ -860,7 +860,7 @@ const lessonData: Record<string, Record<string, Record<string, string>>> = {
           <li>Single Tasks:</strong> Focus on one request at a time</li>
           <li>Examples:</strong> ❌ "Tell me about stuff" ✅ "Explain quantum computing in simple terms"</li>
         </ul>
-        
+        ________________________________________________________
         <h3>--> <strong>Structuring Your Prompt</strong></h3>
         <ul>
           <li>Context First:</strong> Provide background information</li>
