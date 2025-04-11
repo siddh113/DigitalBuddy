@@ -244,18 +244,20 @@ const lessonData: Record<string, Record<string, Record<string, string>>> = {
         Practice navigating between cells using both the mouse and keyboard shortcuts.</p>
       `,
       "Basic Formulas": `
-        <h2>Basic Formulas in Excel</h2>
-        <p>Learn how to perform calculations on your data using Excel formulas.</p>
+        <h2></h2>
+        <p>Here, we will Learn how to perform calculations on your data using Excel formulas.</p>
+       
         
-        <h3>Formula Basics</h3>
+        <h3></h3>
         <ul>
-          <li><strong>Formula Structure:</strong> All formulas begin with an equals sign (=)</li>
-          <li><strong>Cell References:</strong> Refer to other cells by their address (e.g., =A1+B1)</li>
-          <li><strong>Operators:</strong> Mathematical symbols like +, -, *, /, etc.</li>
+          <li><strong>--> Formula Structure:</strong> <br>All formulas begin with an equals sign (=)</li>
+
+          <li><strong>--> Cell References:</strong> <br>Refer to other cells by their address (e.g., =A1+B1)</li>
+          <li><strong>--> Operators:</strong> <br>Mathematical symbols like +, -, *, /, etc.</li>
         </ul>
         
-        <h3>Simple Calculations</h3>
-        <p>Learn to create basic mathematical operations:</p>
+        <h3>______________________________________</h3>
+        <p>Here, we will Learn to create basic mathematical operations:</p>
         <ul>
           <li><strong>Addition:</strong> =A1+B1</li>
           <li><strong>Subtraction:</strong> =A1-B1</li>
@@ -263,18 +265,7 @@ const lessonData: Record<string, Record<string, Record<string, string>>> = {
           <li><strong>Division:</strong> =A1/B1</li>
           <li><strong>Exponents:</strong> =A1^2 (squaring a number)</li>
         </ul>
-        
-        <h3>Order of Operations</h3>
-        <p>Excel follows the standard mathematical order of operations (PEMDAS):
-        Parentheses, Exponents, Multiplication/Division, Addition/Subtraction.</p>
-        
-        <h3>Copying Formulas</h3>
-        <p>Learn how to efficiently copy formulas to multiple cells using the fill handle,
-        and understand the difference between relative and absolute cell references.</p>
-        
-        <h3>Practice Exercise</h3>
-        <p>Create a simple budget with income and expense categories. Use formulas to calculate totals,
-        differences, and percentages.</p>
+
       `,
       "Cell Formatting": `
         <h2>Cell Formatting in Excel</h2>
@@ -512,39 +503,35 @@ const lessonData: Record<string, Record<string, Record<string, string>>> = {
       `,
       "Quiz 1": "You'll be tested on creating presentations, slide design, and adding various types of content.",
       "Animations and Transitions": `
-        <h2>Animations and Transitions in PowerPoint</h2>
-        <p>Learn how to add movement to your presentation with animations and transitions.</p>
+        <h2></h2>
+        <p>In this module, we will learn how to add movement to your presentation with animations and transitions.</p>
         
-        <h3>Slide Transitions</h3>
+        <h3><strong>Slide Transitions</strong></h3>
         <ul>
-          <li><strong>Transition Types:</strong> Fade, Push, Wipe, Split, and more</li>
-          <li><strong>Transition Timing:</strong> Control duration and apply to multiple slides</li>
-          <li><strong>Transition Sound:</strong> Add audio effects to transitions</li>
-          <li><strong>Advance Options:</strong> Manual (on click) or automatic timing</li>
+          <li>--> Transition Types:</strong> Fade, Push, Wipe, Split, and more</li>
+          <li>--> Transition Timing:</strong> Control duration and apply to multiple slides</li>
+          <li>--> Transition Sound:</strong> Add audio effects to transitions</li>
+          <li>--> Advance Options:</strong> Manual (on click) or automatic timing</li>
         </ul>
-        
-        <h3>Animations</h3>
+        <h3>______________________________________</h3>
+        <h3><strong>Animations</strong></h3>
         <ul>
-          <li><strong>Entrance Effects:</strong> How objects appear on a slide</li>
-          <li><strong>Emphasis Effects:</strong> Call attention to objects already on the slide</li>
-          <li><strong>Exit Effects:</strong> How objects leave the slide</li>
-          <li><strong>Motion Paths:</strong> Custom movement for objects</li>
+          <li>--> Entrance Effects:</strong> How objects appear on a slide</li>
+          <li>--> Emphasis Effects:</strong> Call attention to objects already on the slide</li>
+          <li>--> Exit Effects:</strong> How objects leave the slide</li>
+          <li>--> Motion Paths:</strong> Custom movement for objects</li>
         </ul>
-        
-        <h3>Animation Timing</h3>
+        ______________________________________
+        <h3><strong>Animation Timing</strong></h3>
         <ul>
-          <li><strong>Start Options:</strong> On Click, With Previous, or After Previous</li>
-          <li><strong>Duration:</strong> Control how quickly animations play</li>
-          <li><strong>Delay:</strong> Add waiting time before animations start</li>
-          <li><strong>Animation Pane:</strong> Manage complex animations</li>
+          <li>--> Start Options:</strong> On Click, With Previous, or After Previous</li>
+          <li>--> Duration:</strong> Control how quickly animations play</li>
+          <li>--> Delay:</strong> Add waiting time before animations start</li>
+          <li>--> Animation Pane:</strong> Manage complex animations</li>
         </ul>
+       
         
-        <h3>Animation Best Practices</h3>
-        <p>Guidelines for using animations effectively without distracting from your message.</p>
-        
-        <h3>Practice Exercise</h3>
-        <p>Add appropriate transitions between slides in your presentation. On at least three slides,
-        add animations to text and visual elements, using the Animation Pane to control timing and sequence.</p>
+
       `,
       "Presenting Tips": `
         <h2>Presenting Tips for PowerPoint</h2>
