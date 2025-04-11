@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { BookOpen, CheckCircle, Circle, Trophy, ArrowLeft, Award } from 'lucide-react';
 import Quiz from './Quiz';
+import FlappyBirdQuiz from './FlappyBirdQuiz';
 import LessonContent from './LessonContent';
 import ModuleCompletion from './ModuleCompletion';
 import { getLessonContent as fetchLessonContent } from '../data/lessonData';
@@ -30,6 +31,7 @@ const Dashboard: React.FC<DashboardProps> = ({ courses }) => {
     lesson: string;
   } | null>(null);
   const [showModuleCompletion, setShowModuleCompletion] = useState<string | null>(null);
+  const [preferFlappyBirdMode, setPreferFlappyBirdMode] = useState<boolean>(false);
 
   const isModuleCompleted = (courseId: string, moduleTitle: string) => {
     const course = courses.find(c => c.id === courseId);
@@ -90,6 +92,7 @@ const Dashboard: React.FC<DashboardProps> = ({ courses }) => {
 
   if (selectedLesson) {
     const isQuiz = selectedLesson.lesson.toLowerCase().includes('quiz');
+    const useFlappyBirdStyle = isQuiz && preferFlappyBirdMode;
     
     return (
       <div className="min-h-screen bg-gray-50 p-6">
@@ -103,13 +106,23 @@ const Dashboard: React.FC<DashboardProps> = ({ courses }) => {
           </button>
           
           {isQuiz ? (
-            <Quiz 
-              moduleTitle={selectedLesson.moduleTitle}
-              quizNumber={parseInt(selectedLesson.lesson.split(' ')[1])}
-              onComplete={handleQuizComplete}
-              onBack={() => setSelectedLesson(null)}
-              courseId={selectedLesson.courseId}
-            />
+            useFlappyBirdStyle ? (
+              <FlappyBirdQuiz 
+                moduleTitle={selectedLesson.moduleTitle}
+                quizNumber={parseInt(selectedLesson.lesson.split(' ')[1])}
+                onComplete={handleQuizComplete}
+                onBack={() => setSelectedLesson(null)}
+                courseId={selectedLesson.courseId}
+              />
+            ) : (
+              <Quiz 
+                moduleTitle={selectedLesson.moduleTitle}
+                quizNumber={parseInt(selectedLesson.lesson.split(' ')[1])}
+                onComplete={handleQuizComplete}
+                onBack={() => setSelectedLesson(null)}
+                courseId={selectedLesson.courseId}
+              />
+            )
           ) : (
             <LessonContent
               lesson={selectedLesson.lesson}
@@ -126,8 +139,23 @@ const Dashboard: React.FC<DashboardProps> = ({ courses }) => {
   return (
     <div className="min-h-screen bg-gray-50 p-6">
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-4xl font-bold text-gray-800 mb-2">Digital Buddy</h1>
-        <p className="text-xl text-gray-600 mb-8">Your personalized learning journey</p>
+        <div className="flex justify-between items-center">
+          <div>
+            <h1 className="text-4xl font-bold text-gray-800 mb-2">Digital Buddy</h1>
+            <p className="text-xl text-gray-600 mb-8">Your personalized learning journey</p>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="text-gray-600">Game Quiz Mode</span>
+            <button
+              onClick={() => setPreferFlappyBirdMode(!preferFlappyBirdMode)}
+              className={`w-14 h-7 rounded-full transition-colors duration-300 ${
+                preferFlappyBirdMode ? 'bg-green-500' : 'bg-gray-300'
+              } flex items-center ${preferFlappyBirdMode ? 'justify-end' : 'justify-start'}`}
+            >
+              <div className="w-5 h-5 mx-1 rounded-full bg-white"></div>
+            </button>
+          </div>
+        </div>
         
         <div className="grid gap-8">
           {courses.map(course => {

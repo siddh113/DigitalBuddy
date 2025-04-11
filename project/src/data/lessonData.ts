@@ -1443,9 +1443,9 @@ const quizData: Record<string, Record<string, Record<string, QuizQuestion[]>>> =
           correctAnswer: 2
         },
         {
-          question: "Which of the following is NOT a paragraph formatting option in Word?",
-          options: ["Alignment", "Line Spacing", "Indentation", "Font Type"],
-          correctAnswer: 3
+          question: "To Make a table in word, which menu should you use?",
+          options: ["Insert", "Design", "Layout", "References"],
+          correctAnswer: 0
         },
         {
           question: "What is the standard file format for Microsoft Word documents?",
@@ -1453,9 +1453,9 @@ const quizData: Record<string, Record<string, Record<string, QuizQuestion[]>>> =
           correctAnswer: 1
         },
         {
-          question: "Which feature helps you quickly copy formatting from one piece of text to another?",
-          options: ["Format Painter", "Quick Styles", "Copy & Paste", "Text Effects"],
-          correctAnswer: 0
+          question: "Which is not a feature of Microsoft Word?",
+          options: ["Insert", "Design", "Layout", "References"],
+          correctAnswer: 3
         }
       ],
       "Quiz 2": [
@@ -1486,12 +1486,180 @@ const quizData: Record<string, Record<string, Record<string, QuizQuestion[]>>> =
         }
       ]
     },
-    // Add more content for other Microsoft Office modules
+
   },
   ai: {
-    // Content for AI modules
+    "Introduction to AI": {
+      "Quiz 1": [
+        {
+          question: "What does AI stand for?",
+          options: ["Automated Intelligence", "Artificial Intelligence", "Augmented Interface", "Advanced Interactions"],
+          correctAnswer: 1
+        },
+        {
+          question: "Which of the following is NOT a common type of machine learning?",
+          options: ["Supervised Learning", "Unsupervised Learning", "Reinforcement Learning", "Cognitive Learning"],
+          correctAnswer: 3
+        },
+        {
+          question: "Which AI capability allows computers to see and interpret visual information?",
+          options: ["Natural Language Processing", "Computer Vision", "Speech Recognition", "Predictive Analytics"],
+          correctAnswer: 1
+        },
+        {
+          question: "What is the term for AI systems that can perform general intelligent actions like a human?",
+          options: ["Narrow AI", "General AI", "Super AI", "Weak AI"],
+          correctAnswer: 1
+        },
+        {
+          question: "Which of these is NOT typically a characteristic of big data?",
+          options: ["Volume", "Variety", "Velocity", "Visibility"],
+          correctAnswer: 3
+        }
+      ]
+    },
+    "Prompt Engineering": {
+      "Quiz 1": [
+        {
+          question: "What is prompt engineering?",
+          options: ["Building hardware for AI", "Creating effective instructions for AI models", "Programming AI from scratch", "Testing AI systems for errors"],
+          correctAnswer: 1
+        },
+        {
+          question: "Which technique involves asking the AI to assume a specific perspective?",
+          options: ["Chain of thought", "Role prompting", "Few-shot learning", "Zero-shot prompting"],
+          correctAnswer: 1
+        },
+        {
+          question: "What is 'chain-of-thought' prompting used for?",
+          options: ["Linking multiple AIs together", "Making the AI show its reasoning step by step", "Creating a sequence of prompts", "Memory management"],
+          correctAnswer: 1
+        },
+        {
+          question: "Which of the following is a common mistake in prompt engineering?",
+          options: ["Being too specific", "Using clear instructions", "Being too vague", "Providing examples"],
+          correctAnswer: 2
+        },
+        {
+          question: "What does 'few-shot learning' refer to in prompt engineering?",
+          options: ["Using minimal computing resources", "Training an AI with limited data", "Providing examples in your prompt", "Quick response generation"],
+          correctAnswer: 2
+        }
+      ]
+    }
   },
   mail: {
-    // Content for Email & Meetings modules
+    "Email Management": {
+      "Quiz 1": [
+        {
+          question: "What should you include in an email subject line?",
+          options: ["Your entire message", "A brief, relevant description", "Nothing, it's optional", "Your name and title"],
+          correctAnswer: 1
+        },
+        {
+          question: "Which part of an email shows previous messages in the conversation?",
+          options: ["Header", "Footer", "Thread", "Signature"],
+          correctAnswer: 2
+        },
+        {
+          question: "What is the purpose of the CC field in an email?",
+          options: ["To hide recipient addresses", "To send copies to secondary recipients", "To schedule delivery", "To encrypt the message"],
+          correctAnswer: 1
+        },
+        {
+          question: "What does BCC stand for?",
+          options: ["Blocked Carbon Copy", "Blind Carbon Copy", "Back Channel Communication", "Business Copy Control"],
+          correctAnswer: 1
+        },
+        {
+          question: "Which of the following is best practice for professional email communication?",
+          options: ["Using all capital letters for emphasis", "Including multiple topics in one email", "Using a professional greeting and sign-off", "Sending without proofreading"],
+          correctAnswer: 2
+        }
+      ],
+      "Quiz 2": [
+        {
+          question: "Which approach to inbox management aims to keep your inbox completely empty?",
+          options: ["Inbox Sorting", "Inbox Zero", "Email Archiving", "Priority Inbox"],
+          correctAnswer: 1
+        },
+        {
+          question: "What is a phishing email?",
+          options: ["An email sent to multiple recipients", "A deceptive email attempting to steal information", "An email with large attachments", "A promotional email"],
+          correctAnswer: 1
+        },
+        {
+          question: "What should you do before sending an important professional email?",
+          options: ["Add many recipients in CC", "Send a follow-up immediately", "Proofread your message", "Use informal language"],
+          correctAnswer: 2
+        },
+        {
+          question: "Which email feature allows you to temporarily remove emails from your inbox until a later time?",
+          options: ["Archive", "Delete", "Snooze", "Star"],
+          correctAnswer: 2
+        },
+        {
+          question: "What is the most secure way to protect your email account?",
+          options: ["Using a simple password", "Sharing credentials with colleagues", "Two-factor authentication", "Never logging out"],
+          correctAnswer: 2
+        }
+      ]
+    },
+    "Virtual Meetings": {
+      "Quiz 1": [
+        {
+          question: "What should you do before a virtual meeting?",
+          options: ["Test your audio and video", "Wait until the meeting to prepare", "Connect at the last minute", "Keep your camera off"],
+          correctAnswer: 0
+        },
+        {
+          question: "What is a best practice during virtual meetings?",
+          options: ["Multitasking", "Muting when not speaking", "Eating full meals", "Interrupting frequently"],
+          correctAnswer: 1
+        },
+        {
+          question: "How can you make virtual meetings more engaging?",
+          options: ["Speaking in a monotone voice", "Having no agenda", "Using interactive features like polls", "Doing all the talking"],
+          correctAnswer: 2
+        },
+        {
+          question: "What is screen sharing used for?",
+          options: ["Taking attendance", "Displaying content to all participants", "Recording the meeting", "Private messaging"],
+          correctAnswer: 1
+        },
+        {
+          question: "What should be included in meeting follow-up?",
+          options: ["Criticism of participants", "Summary and action items", "Unrelated work updates", "Personal stories"],
+          correctAnswer: 1
+        }
+      ],
+      "Quiz 2": [
+        {
+          question: "What are breakout rooms used for in virtual meetings?",
+          options: ["Taking breaks", "Small group discussions", "Technical support", "Recording sessions"],
+          correctAnswer: 1
+        },
+        {
+          question: "Which of these is most important when scheduling a virtual meeting?",
+          options: ["Making it as long as possible", "Considering time zones for international participants", "Scheduling at odd hours", "Excluding an agenda"],
+          correctAnswer: 1
+        },
+        {
+          question: "What should you do if you experience technical issues during a virtual meeting?",
+          options: ["Abandon the meeting immediately", "Ignore the problem", "Communicate the issue to the host", "Blame your internet provider"],
+          correctAnswer: 2
+        },
+        {
+          question: "What is a virtual background used for?",
+          options: ["Hiding your actual environment", "Improving internet connection", "Recording the meeting", "Taking screenshots"],
+          correctAnswer: 0
+        },
+        {
+          question: "Which annotation tool allows you to highlight important information during screen sharing?",
+          options: ["Drawing tools", "Chat function", "Reaction emojis", "Background effects"],
+          correctAnswer: 0
+        }
+      ]
+    }
   }
 };
