@@ -3,6 +3,7 @@ import { BookOpen, CheckCircle, Circle, Trophy, ArrowLeft, Award } from 'lucide-
 import Quiz from './Quiz';
 import LessonContent from './LessonContent';
 import ModuleCompletion from './ModuleCompletion';
+import { getLessonContent as fetchLessonContent } from '../data/lessonData';
 
 interface Module {
   title: string;
@@ -81,7 +82,10 @@ const Dashboard: React.FC<DashboardProps> = ({ courses }) => {
   };
 
   const getLessonContent = (lesson: string) => {
-    return `This is the content for ${lesson}. Here you'll learn all about this topic through interactive content, examples, and exercises.`;
+    if (selectedLesson) {
+      return fetchLessonContent(selectedLesson.courseId, selectedLesson.moduleTitle, lesson);
+    }
+    return "Content not available.";
   };
 
   if (selectedLesson) {

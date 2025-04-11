@@ -17,9 +17,10 @@ const LessonContent: React.FC<LessonContentProps> = ({ lesson, content, onComple
       </div>
 
       <div className="prose max-w-none mb-8">
-        <div className="bg-gray-50 p-6 rounded-lg mb-6">
-          {content}
-        </div>
+        <div 
+          className="bg-gray-50 p-6 rounded-lg mb-6"
+          dangerouslySetInnerHTML={{ __html: content }}
+        />
       </div>
 
       <div className="flex gap-4">
