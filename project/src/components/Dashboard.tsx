@@ -108,6 +108,7 @@ const Dashboard: React.FC<DashboardProps> = ({ courses }) => {
               quizNumber={parseInt(selectedLesson.lesson.split(' ')[1])}
               onComplete={handleQuizComplete}
               onBack={() => setSelectedLesson(null)}
+              courseId={selectedLesson.courseId}
             />
           ) : (
             <LessonContent

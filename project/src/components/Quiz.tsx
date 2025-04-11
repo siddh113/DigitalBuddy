@@ -1,22 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { Trophy, Share2, ArrowLeft, Award, Star } from 'lucide-react';
 import { FacebookShareButton, TwitterShareButton, LinkedinShareButton } from 'react-share';
-import confetti from 'confetti-js';
-
-interface Question {
-  question: string;
-  options: string[];
-  correctAnswer: number;
-}
+import { QuizQuestion, getQuizQuestions } from '../data/lessonData';
 
 interface QuizProps {
   moduleTitle: string;
   quizNumber: number;
   onComplete: (score: number) => void;
   onBack: () => void;
+  courseId: string;
 }
 
-const Quiz: React.FC<QuizProps> = ({ moduleTitle, quizNumber, onComplete, onBack }) => {
+const Quiz: React.FC<QuizProps> = ({ moduleTitle, quizNumber, onComplete, onBack, courseId }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [showResults, setShowResults] = useState(false);
@@ -38,30 +33,12 @@ const Quiz: React.FC<QuizProps> = ({ moduleTitle, quizNumber, onComplete, onBack
         start_from_edge: true,
         respawn: true
       };
-      const confettiInstance = new confetti.create('confetti-canvas', confettiSettings);
-      confettiInstance.render();
 
-      return () => confettiInstance.clear();
+      return;
     }
   }, [showCongratulations]);
 
-  const questions: Question[] = [
-    {
-      question: "Sample Question 1 for " + moduleTitle,
-      options: ["Option 1", "Option 2", "Option 3", "Option 4"],
-      correctAnswer: 0
-    },
-    {
-      question: "Sample Question 2 for " + moduleTitle,
-      options: ["Option 1", "Option 2", "Option 3", "Option 4"],
-      correctAnswer: 1
-    },
-    {
-      question: "Sample Question 3 for " + moduleTitle,
-      options: ["Option 1", "Option 2", "Option 3", "Option 4"],
-      correctAnswer: 2
-    }
-  ];
+  const questions = getQuizQuestions(courseId, moduleTitle, quizNumber);
 
   const handleAnswer = (selectedOption: number) => {
     setSelectedAnswer(selectedOption);
@@ -87,6 +64,21 @@ const Quiz: React.FC<QuizProps> = ({ moduleTitle, quizNumber, onComplete, onBack
       onComplete(score);
     }
   };
+
+  if (questions.length === 0) {
+    return (
+      <div className="bg-white p-8 rounded-xl shadow-lg text-center">
+        <h2 className="text-xl font-semibold mb-4">No quiz questions found</h2>
+        <p className="text-gray-600 mb-6">There are no questions available for this quiz yet.</p>
+        <button
+          onClick={onBack}
+          className="bg-blue-500 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-600"
+        >
+          Back to Dashboard
+        </button>
+      </div>
+    );
+  }
 
   const shareUrl = window.location.href;
   const shareTitle = `I just completed ${moduleTitle} Quiz ${quizNumber} on Digital Buddy! 🎉`;

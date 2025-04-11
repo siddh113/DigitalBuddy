@@ -2,6 +2,18 @@ export const getLessonContent = (courseId: string, moduleTitle: string, lesson: 
   return lessonData[courseId]?.[moduleTitle]?.[lesson] || "Content for this lesson is being developed.";
 };
 
+export interface QuizQuestion {
+  question: string;
+  options: string[];
+  correctAnswer: number;
+}
+
+export const getQuizQuestions = (courseId: string, moduleTitle: string, quizNumber: number): QuizQuestion[] => {
+  const quizName = `Quiz ${quizNumber}`;
+  return quizData[courseId]?.[moduleTitle]?.[quizName] || [];
+};
+
+// Simple placeholder content
 const lessonData: Record<string, Record<string, Record<string, string>>> = {
   microsoft: {
     "Microsoft Word Basics": {
@@ -1438,5 +1450,74 @@ const lessonData: Record<string, Record<string, Record<string, string>>> = {
       `,
       "Quiz 2": "You'll be tested on virtual meeting etiquette, scheduling meetings, and advanced meeting features."
     }
+  }
+};
+
+// Data structure to hold all quiz questions
+const quizData: Record<string, Record<string, Record<string, QuizQuestion[]>>> = {
+  microsoft: {
+    "Microsoft Word Basics": {
+      "Quiz 1": [
+        {
+          question: "Which element of the Word interface contains tabs like Home, Insert, and Design?",
+          options: ["Quick Access Toolbar", "Ribbon", "Status Bar", "Navigation Pane"],
+          correctAnswer: 1
+        },
+        {
+          question: "To emphasize important text in a document, you can use which formatting option?",
+          options: ["Strikethrough", "Subscript", "Bold", "Small Caps"],
+          correctAnswer: 2
+        },
+        {
+          question: "Which of the following is NOT a paragraph formatting option in Word?",
+          options: ["Alignment", "Line Spacing", "Indentation", "Font Type"],
+          correctAnswer: 3
+        },
+        {
+          question: "What is the standard file format for Microsoft Word documents?",
+          options: [".txt", ".docx", ".pdf", ".rtf"],
+          correctAnswer: 1
+        },
+        {
+          question: "Which feature helps you quickly copy formatting from one piece of text to another?",
+          options: ["Format Painter", "Quick Styles", "Copy & Paste", "Text Effects"],
+          correctAnswer: 0
+        }
+      ],
+      "Quiz 2": [
+        {
+          question: "Which text wrapping option places text above and below an image but not beside it?",
+          options: ["In Line with Text", "Square", "Tight", "Through"],
+          correctAnswer: 0
+        },
+        {
+          question: "To create a table with 5 columns and 3 rows, which menu should you use?",
+          options: ["Insert", "Design", "Layout", "References"],
+          correctAnswer: 0
+        },
+        {
+          question: "Which page orientation results in a document that is wider than it is tall?",
+          options: ["Portrait", "Landscape", "Legal", "A4"],
+          correctAnswer: 1
+        },
+        {
+          question: "What element appears at the top of every page in a document?",
+          options: ["Footer", "Header", "Watermark", "Title"],
+          correctAnswer: 1
+        },
+        {
+          question: "What is the file extension for a Word template?",
+          options: [".docx", ".dotx", ".tmpx", ".wdtx"],
+          correctAnswer: 1
+        }
+      ]
+    },
+    // Add more content for other Microsoft Office modules
+  },
+  ai: {
+    // Content for AI modules
+  },
+  mail: {
+    // Content for Email & Meetings modules
   }
 };
