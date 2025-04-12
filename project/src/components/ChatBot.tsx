@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { MessageCircle, Send, X, Minimize2, Maximize2, HelpCircle, Trash2 } from 'lucide-react';
+import { MessageCircle, Send, X, Minimize2, Maximize2, HelpCircle, Trash2, ArrowLeft } from 'lucide-react';
 
 interface ChatBotProps {
   isOpen: boolean;
@@ -184,6 +184,15 @@ const ChatBot: React.FC<ChatBotProps> = ({ isOpen, onToggle }) => {
     setShowClearConfirm(false);
   };
 
+  // Navigate back to courses page
+  const navigateToCourses = () => {
+    // This will reset the selected lesson state in the Dashboard component
+    if (window.confirm('Navigate back to the courses dashboard?')) {
+      // Use window.history to go back
+      window.location.href = '/'; // This will take user back to the root page with courses
+    }
+  };
+
   if (!isOpen) return null;
 
   return (
@@ -199,6 +208,13 @@ const ChatBot: React.FC<ChatBotProps> = ({ isOpen, onToggle }) => {
           <h3 className="font-medium">Digital Buddy Assistant</h3>
         </div>
         <div className="flex items-center gap-2">
+          <button 
+            onClick={navigateToCourses} 
+            className="text-white hover:text-blue-200 transition-colors" 
+            title="Back to Courses"
+          >
+            <ArrowLeft size={18} />
+          </button>
           <button 
             onClick={clearChat} 
             className="text-white hover:text-blue-200 transition-colors" 
@@ -217,7 +233,7 @@ const ChatBot: React.FC<ChatBotProps> = ({ isOpen, onToggle }) => {
 
       {/* Chat Messages */}
       {!isMinimized && (
-        <div className="flex flex-col h-[calc(100%-96px)]">
+        <div className="flex flex-col h-[calc(100%-48px)]">
           <div className="flex-1 p-4 overflow-y-auto">
             {messages.map(message => (
               <div
@@ -291,6 +307,17 @@ const ChatBot: React.FC<ChatBotProps> = ({ isOpen, onToggle }) => {
             )}
             
             <div ref={messagesEndRef} />
+          </div>
+
+          {/* Back to Courses Button */}
+          <div className="px-4 py-2 border-t">
+            <button
+              onClick={navigateToCourses}
+              className="w-full bg-gray-100 text-gray-700 py-2 rounded-lg font-medium hover:bg-gray-200 flex items-center justify-center gap-2 transition-colors"
+            >
+              <ArrowLeft size={16} />
+              Back to Courses Dashboard
+            </button>
           </div>
 
           {/* Chat Input */}

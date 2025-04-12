@@ -151,9 +151,16 @@ function App() {
     setIsChatBotOpen(!isChatBotOpen);
   };
 
+  const handleBackToCourses = () => {
+    setShowDashboard(false);
+  };
+
   if (showDashboard) {
     const selectedCourses = learningPaths.filter(path => selectedPaths.includes(path.id));
-    return <Dashboard courses={selectedCourses} />;
+    return <Dashboard 
+      courses={selectedCourses} 
+      onBackToCourses={handleBackToCourses}
+    />;
   }
 
   return (

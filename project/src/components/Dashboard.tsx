@@ -23,9 +23,10 @@ interface Course {
 
 interface DashboardProps {
   courses: Course[];
+  onBackToCourses?: () => void; // Optional callback to go back to course selection
 }
 
-const Dashboard: React.FC<DashboardProps> = ({ courses }) => {
+const Dashboard: React.FC<DashboardProps> = ({ courses, onBackToCourses }) => {
   const [completedLessons, setCompletedLessons] = useState<string[]>([]);
   const [selectedLesson, setSelectedLesson] = useState<{
     courseId: string;
@@ -104,13 +105,25 @@ const Dashboard: React.FC<DashboardProps> = ({ courses }) => {
     return (
       <div className="min-h-screen bg-gray-50 p-6">
         <div className="max-w-7xl mx-auto">
-          <button
-            onClick={() => setSelectedLesson(null)}
-            className="flex items-center gap-2 text-gray-600 hover:text-gray-800 mb-6"
-          >
-            <ArrowLeft className="w-5 h-5" />
-            Back to Dashboard
-          </button>
+          <div className="flex items-center gap-4 mb-6">
+            <button
+              onClick={() => setSelectedLesson(null)}
+              className="flex items-center gap-2 text-gray-600 hover:text-gray-800"
+            >
+              <ArrowLeft className="w-5 h-5" />
+              Back to Dashboard
+            </button>
+            
+            {onBackToCourses && (
+              <button
+                onClick={onBackToCourses}
+                className="flex items-center gap-2 text-gray-600 hover:text-gray-800"
+              >
+                <ArrowLeft className="w-5 h-5" />
+                Back to Courses
+              </button>
+            )}
+          </div>
           
           {isQuiz ? (
             useFlappyBirdStyle ? (
@@ -153,16 +166,27 @@ const Dashboard: React.FC<DashboardProps> = ({ courses }) => {
             <h1 className="text-4xl font-bold text-gray-800 mb-2">Digital Buddy</h1>
             <p className="text-xl text-gray-600 mb-8">Your personalized learning journey</p>
           </div>
-          <div className="flex items-center gap-2">
-            <span className="text-gray-600">Game Quiz Mode</span>
-            <button
-              onClick={() => setPreferFlappyBirdMode(!preferFlappyBirdMode)}
-              className={`w-14 h-7 rounded-full transition-colors duration-300 ${
-                preferFlappyBirdMode ? 'bg-green-500' : 'bg-gray-300'
-              } flex items-center ${preferFlappyBirdMode ? 'justify-end' : 'justify-start'}`}
-            >
-              <div className="w-5 h-5 mx-1 rounded-full bg-white"></div>
-            </button>
+          <div className="flex items-center gap-4">
+            {onBackToCourses && (
+              <button
+                onClick={onBackToCourses}
+                className="flex items-center gap-2 text-gray-600 hover:text-gray-800 bg-gray-100 px-4 py-2 rounded-lg transition-colors"
+              >
+                <ArrowLeft className="w-5 h-5" />
+                Back to Courses
+              </button>
+            )}
+            <div className="flex items-center gap-2">
+              <span className="text-gray-600">Game Quiz Mode</span>
+              <button
+                onClick={() => setPreferFlappyBirdMode(!preferFlappyBirdMode)}
+                className={`w-14 h-7 rounded-full transition-colors duration-300 ${
+                  preferFlappyBirdMode ? 'bg-green-500' : 'bg-gray-300'
+                } flex items-center ${preferFlappyBirdMode ? 'justify-end' : 'justify-start'}`}
+              >
+                <div className="w-5 h-5 mx-1 rounded-full bg-white"></div>
+              </button>
+            </div>
           </div>
         </div>
         
