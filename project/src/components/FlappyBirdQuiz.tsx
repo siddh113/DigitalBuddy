@@ -108,14 +108,14 @@ const FlappyBirdQuiz: React.FC<FlappyBirdQuizProps> = ({
       ctx.font = '24px Arial';
       ctx.fillText(`Score: ${score}`, 20, 30);
       
-      // Draw question progress indicator
-      const nextQuestionAt = Math.ceil((score + 1) / 2) * 2;
-      const pipesUntilQuestion = nextQuestionAt - (score + 1);
-      if (currentQuestionIndex < questions.length) {
-        ctx.fillText(`Next question in: ${pipesUntilQuestion + 1} pipe${pipesUntilQuestion !== 0 ? 's' : ''}`, 20, 70);
-      } else {
-        ctx.fillText(`All questions answered!`, 20, 70);
-      }
+      // // Draw question progress indicator
+      // const nextQuestionAt = Math.ceil((score + 1) / 2) * 2;
+      // const pipesUntilQuestion = nextQuestionAt - (score + 1);
+      // if (currentQuestionIndex < questions.length) {
+      //   ctx.fillText(`Next question in: ${pipesUntilQuestion + 1} pipe${pipesUntilQuestion !== 0 ? 's' : ''}`, 20, 70);
+      // } else {
+      //   ctx.fillText(`All questions answered!`, 20, 70);
+      // }
     };
     
     renderGame();

@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { Monitor, Brain, Mail, ArrowRight, Check, BookOpen, Trophy } from 'lucide-react';
 import Dashboard from './components/Dashboard';
+import ChatBot from './components/ChatBot';
+import ChatBotToggle from './components/ChatBotToggle';
 
 function App() {
   const [selectedPaths, setSelectedPaths] = useState<string[]>([]);
   const [showDashboard, setShowDashboard] = useState(false);
+  const [isChatBotOpen, setIsChatBotOpen] = useState(false);
 
   const learningPaths = [
     {
@@ -144,88 +147,96 @@ function App() {
     }
   };
 
+  const toggleChatBot = () => {
+    setIsChatBotOpen(!isChatBotOpen);
+  };
+
   if (showDashboard) {
     const selectedCourses = learningPaths.filter(path => selectedPaths.includes(path.id));
     return <Dashboard courses={selectedCourses} />;
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-purple-50 py-12 px-4">
-      <div className="max-w-6xl mx-auto">
-        <h1 className="text-4xl md:text-5xl font-bold text-center text-gray-800 mb-4">
-          What would you like to learn today?
-        </h1>
-        <p className="text-xl text-center text-gray-600 mb-4">
-          Choose your learning adventures! Select one or more options to get started.
-        </p>
-        <p className="text-lg text-center text-blue-600 mb-12">
-          {selectedPaths.length === 0 ? (
-            "Click on any course to select it"
-          ) : (
-            `${selectedPaths.length} course${selectedPaths.length > 1 ? 's' : ''} selected`
-          )}
-        </p>
+    <>
+      <div className="min-h-screen bg-gradient-to-b from-blue-50 to-purple-50 py-12 px-4">
+        <div className="max-w-6xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-bold text-center text-gray-800 mb-4">
+            What would you like to learn today?
+          </h1>
+          <p className="text-xl text-center text-gray-600 mb-4">
+            Choose your learning adventures! Select one or more options to get started.
+          </p>
+          <p className="text-lg text-center text-blue-600 mb-12">
+            {selectedPaths.length === 0 ? (
+              "Click on any course to select it"
+            ) : (
+              `${selectedPaths.length} course${selectedPaths.length > 1 ? 's' : ''} selected`
+            )}
+          </p>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {learningPaths.map((path) => (
-            <div
-              key={path.id}
-              className={`relative rounded-2xl overflow-hidden transition-all duration-300 transform hover:scale-105 cursor-pointer ${
-                selectedPaths.includes(path.id) ? 'ring-4 ring-blue-400' : ''
-              }`}
-              onClick={() => togglePath(path.id)}
-            >
-              <div className="absolute inset-0">
-                <img
-                  src={path.image}
-                  alt={path.title}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-              </div>
-
-              <div className="relative p-6 h-full flex flex-col min-h-[320px]">
-                <div className={`p-3 rounded-full ${path.color} w-fit`}>
-                  <path.icon className="w-8 h-8 text-white" />
+          <div className="grid md:grid-cols-3 gap-8">
+            {learningPaths.map((path) => (
+              <div
+                key={path.id}
+                className={`relative rounded-2xl overflow-hidden transition-all duration-300 transform hover:scale-105 cursor-pointer ${
+                  selectedPaths.includes(path.id) ? 'ring-4 ring-blue-400' : ''
+                }`}
+                onClick={() => togglePath(path.id)}
+              >
+                <div className="absolute inset-0">
+                  <img
+                    src={path.image}
+                    alt={path.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black bg-opacity-50"></div>
                 </div>
 
-                <h2 className="text-2xl font-bold text-white mt-4 mb-2">
-                  {path.title}
-                </h2>
-                <p className="text-gray-200 mb-6">{path.description}</p>
+                <div className="relative p-6 h-full flex flex-col min-h-[320px]">
+                  <div className={`p-3 rounded-full ${path.color} w-fit`}>
+                    <path.icon className="w-8 h-8 text-white" />
+                  </div>
 
-                <div className="mt-auto flex items-center">
-                  <button
-                    className={`${path.color} text-white px-6 py-3 rounded-lg flex items-center gap-2 transition-all duration-300`}
-                  >
-                    {selectedPaths.includes(path.id) ? (
-                      <>
-                        Selected <Check className="w-5 h-5" />
-                      </>
-                    ) : (
-                      <>
-                        Select Course <BookOpen className="w-5 h-5" />
-                      </>
-                    )}
-                  </button>
+                  <h2 className="text-2xl font-bold text-white mt-4 mb-2">
+                    {path.title}
+                  </h2>
+                  <p className="text-gray-200 mb-6">{path.description}</p>
+
+                  <div className="mt-auto flex items-center">
+                    <button
+                      className={`${path.color} text-white px-6 py-3 rounded-lg flex items-center gap-2 transition-all duration-300`}
+                    >
+                      {selectedPaths.includes(path.id) ? (
+                        <>
+                          Selected <Check className="w-5 h-5" />
+                        </>
+                      ) : (
+                        <>
+                          Select Course <BookOpen className="w-5 h-5" />
+                        </>
+                      )}
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
-
-        {selectedPaths.length > 0 && (
-          <div className="mt-12 text-center">
-            <button 
-              onClick={handleBeginJourney}
-              className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-8 py-4 rounded-lg text-xl font-semibold hover:from-blue-600 hover:to-purple-600 transition-all duration-300 flex items-center gap-2 mx-auto"
-            >
-              Begin Your Journey <ArrowRight className="w-6 h-6" />
-            </button>
+            ))}
           </div>
-        )}
+
+          {selectedPaths.length > 0 && (
+            <div className="mt-12 text-center">
+              <button 
+                onClick={handleBeginJourney}
+                className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-8 py-4 rounded-lg text-xl font-semibold hover:from-blue-600 hover:to-purple-600 transition-all duration-300 flex items-center gap-2 mx-auto"
+              >
+                Begin Your Journey <ArrowRight className="w-6 h-6" />
+              </button>
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+      <ChatBotToggle isOpen={isChatBotOpen} onToggle={toggleChatBot} />
+      <ChatBot isOpen={isChatBotOpen} onToggle={toggleChatBot} />
+    </>
   );
 }
 

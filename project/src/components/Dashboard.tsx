@@ -4,6 +4,8 @@ import Quiz from './Quiz';
 import FlappyBirdQuiz from './FlappyBirdQuiz';
 import LessonContent from './LessonContent';
 import ModuleCompletion from './ModuleCompletion';
+import ChatBot from './ChatBot';
+import ChatBotToggle from './ChatBotToggle';
 import { getLessonContent as fetchLessonContent } from '../data/lessonData';
 
 interface Module {
@@ -32,6 +34,7 @@ const Dashboard: React.FC<DashboardProps> = ({ courses }) => {
   } | null>(null);
   const [showModuleCompletion, setShowModuleCompletion] = useState<string | null>(null);
   const [preferFlappyBirdMode, setPreferFlappyBirdMode] = useState<boolean>(false);
+  const [isChatBotOpen, setIsChatBotOpen] = useState(false);
 
   const isModuleCompleted = (courseId: string, moduleTitle: string) => {
     const course = courses.find(c => c.id === courseId);
@@ -90,6 +93,10 @@ const Dashboard: React.FC<DashboardProps> = ({ courses }) => {
     return "Content not available.";
   };
 
+  const toggleChatBot = () => {
+    setIsChatBotOpen(!isChatBotOpen);
+  };
+
   if (selectedLesson) {
     const isQuiz = selectedLesson.lesson.toLowerCase().includes('quiz');
     const useFlappyBirdStyle = isQuiz && preferFlappyBirdMode;
@@ -132,6 +139,8 @@ const Dashboard: React.FC<DashboardProps> = ({ courses }) => {
             />
           )}
         </div>
+        <ChatBotToggle isOpen={isChatBotOpen} onToggle={toggleChatBot} />
+        <ChatBot isOpen={isChatBotOpen} onToggle={toggleChatBot} />
       </div>
     );
   }
@@ -255,7 +264,8 @@ const Dashboard: React.FC<DashboardProps> = ({ courses }) => {
           })}
         </div>
       </div>
-
+      <ChatBotToggle isOpen={isChatBotOpen} onToggle={toggleChatBot} />
+      <ChatBot isOpen={isChatBotOpen} onToggle={toggleChatBot} />
       {showModuleCompletion && (
         <ModuleCompletion
           moduleTitle={showModuleCompletion}
